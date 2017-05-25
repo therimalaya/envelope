@@ -8,7 +8,8 @@ xenv <- function(X, Y, u, asy = TRUE) {
   
   if (a[1] != nrow(X)) stop("X and Y should have the same number of observations.")
   if (u > p || u < 0) stop("u must be an integer between 0 and p.")
-  if(sum(duplicated(cbind(X, Y), MARGIN = 2)) > 0) stop("Some responses also appear in the predictors, or there maybe duplicated columns in X or Y.")
+  if(sum(duplicated(cbind(X, Y), MARGIN = 2)) > 0)
+    stop("Some responses also appear in the predictors, or there maybe duplicated columns in X or Y.")
   
   sigY <- cov(Y) * (n - 1) / n
   sigYX <- cov(Y, X) * (n - 1) / n
